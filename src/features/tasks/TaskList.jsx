@@ -6,7 +6,7 @@ export default function TaskList() {
   console.log('🚀 ~ tasks:', tasks)
 
   return (
-    <ul>
+    <ul className='flex flex-col gap-3'>
       {tasks.map((task) => (
         <TaskItem
           key={task.id}

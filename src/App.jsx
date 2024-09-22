@@ -1,14 +1,15 @@
-import TaskForm from './features/tasks/TaskForm'
 import TaskList from './features/tasks/TaskList'
+import BtnAdd from './ui/BtnAdd'
+import Container from './ui/Container'
 import Header from './ui/Header'
 
 export default function App() {
   return (
-    <div className='App'>
+    <Container>
       <Header>
-        <TaskForm />
-        <TaskList />
+        <BtnAdd />
       </Header>
-    </div>
+      <TaskList />
+    </Container>
   )
 }

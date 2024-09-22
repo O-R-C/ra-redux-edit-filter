@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid'
 import { createSlice } from '@reduxjs/toolkit'
 import { getTestTasks } from '../../services/getTestTasks'
 
@@ -10,7 +11,7 @@ const tasksSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action) => {
-      state.tasks.push(action.payload)
+      state.tasks.push({ ...action.payload, id: uuid() })
     },
     removeTask: (state, action) => {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload)
