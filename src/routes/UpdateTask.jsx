@@ -8,7 +8,6 @@ export default function UpdateTask() {
   const dispatch = useDispatch()
   const task = useActionData()
   const id = useLoaderData()
-  console.log('🚀 ~ task:', task)
 
   useEffect(() => {
     if (task) {

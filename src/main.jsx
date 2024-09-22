@@ -12,6 +12,8 @@ import UpdateTask from './routes/UpdateTask.jsx'
 
 import store from './store.js'
 import './index.css'
+import DeleteTask from './routes/DeleteTask.jsx'
+import ConfirmDelete from './routes/ConfirmDelete.jsx'
 
 const router = createBrowserRouter([
   {
@@ -36,8 +38,14 @@ const router = createBrowserRouter([
       },
       {
         path: 'task/:id/delete',
-        element: <TaskForm />,
-        action: TaskForm.action,
+        element: <ConfirmDelete />,
+        children: [
+          {
+            path: 'delete',
+            element: <DeleteTask />,
+            loader: EditTask.loader,
+          },
+        ],
       },
       {
         path: 'task/:id/edit',

@@ -7,7 +7,6 @@ export default function AddTask() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const task = useActionData()
-  console.log('🚀 ~ task:', task)
 
   useEffect(() => {
     if (task) {
