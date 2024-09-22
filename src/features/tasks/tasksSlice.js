@@ -13,6 +13,9 @@ const tasksSlice = createSlice({
     addTask: (state, action) => {
       state.tasks.push({ ...action.payload, id: uuid() })
     },
+    updateTask: (state, action) => {
+      state.tasks = state.tasks.map((task) => (task.id === action.payload.id ? action.payload : task))
+    },
     removeTask: (state, action) => {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload)
     },
@@ -25,5 +28,5 @@ const tasksSlice = createSlice({
   },
 })
 
-export const { addTask, removeTask, resetTasks, setTasks } = tasksSlice.actions
+export const { addTask, removeTask, resetTasks, setTasks, updateTask } = tasksSlice.actions
 export default tasksSlice.reducer

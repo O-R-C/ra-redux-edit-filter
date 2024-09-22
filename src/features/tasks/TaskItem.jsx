@@ -4,8 +4,8 @@ import BtnLink from '../../ui/BtnLink'
 export default function TaskItem({ title, price, id }) {
   return (
     <li className='flex justify-between items-center text-lg bg-slate-800 p-2 rounded-md  '>
-      <h3 className='w-1/3'>{title}</h3>
-      <p>{price}</p>
+      <h3 className='w-2/3'>{title}</h3>
+      <p className='w-1/3'>{price}</p>
       <div className='flex gap-4'>
         <BtnLink to={`/task/${id}/edit`}>Edit</BtnLink>
         <BtnLink

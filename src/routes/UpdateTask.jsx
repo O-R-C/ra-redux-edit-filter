@@ -1,17 +1,18 @@
 import { useDispatch } from 'react-redux'
-import { useActionData, useNavigate } from 'react-router-dom'
-import { addTask } from '../features/tasks/tasksSlice'
+import { useActionData, useLoaderData, useNavigate } from 'react-router-dom'
+import { updateTask } from '../features/tasks/tasksSlice'
 import { useEffect } from 'react'
 
-export default function AddTask() {
+export default function UpdateTask() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const task = useActionData()
+  const id = useLoaderData()
   console.log('🚀 ~ task:', task)
 
   useEffect(() => {
     if (task) {
-      dispatch(addTask(task))
+      dispatch(updateTask({ ...task, id }))
     }
 
     navigate('/')

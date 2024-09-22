@@ -6,10 +6,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import TaskForm from './features/tasks/TaskForm.jsx'
 import ErrorPage from './routes/ErrorPage.jsx'
+import AddTask from './routes/AddTask.jsx'
+import EditTask from './routes/EditTask.jsx'
+import UpdateTask from './routes/UpdateTask.jsx'
 
 import store from './store.js'
 import './index.css'
-import AddTask from './routes/AddTask.jsx'
 
 const router = createBrowserRouter([
   {
@@ -24,11 +26,13 @@ const router = createBrowserRouter([
         path: 'task/new',
         element: <TaskForm />,
         action: TaskForm.action,
-      },
-      {
-        path: 'task/new/add',
-        element: <AddTask />,
-        action: TaskForm.action,
+        children: [
+          {
+            path: 'add',
+            element: <AddTask />,
+            action: TaskForm.action,
+          },
+        ],
       },
       {
         path: 'task/:id/delete',
@@ -37,8 +41,17 @@ const router = createBrowserRouter([
       },
       {
         path: 'task/:id/edit',
-        element: <TaskForm />,
+        element: <EditTask />,
+        loader: EditTask.loader,
         action: TaskForm.action,
+        children: [
+          {
+            path: 'update',
+            element: <UpdateTask />,
+            action: TaskForm.action,
+            loader: EditTask.loader,
+          },
+        ],
       },
     ],
   },
