@@ -13,7 +13,7 @@ export default function AddTask() {
       dispatch(addTask(task))
     }
 
-    navigate('/')
+    navigate('/', { replace: true })
   })
 
   return null

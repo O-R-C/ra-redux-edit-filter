@@ -14,7 +14,7 @@ export default function UpdateTask() {
       dispatch(updateTask({ ...task, id }))
     }
 
-    navigate('/')
+    navigate('/', { replace: true })
   })
 
   return null

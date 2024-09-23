@@ -22,6 +22,7 @@ export default function TaskForm({ titleValue, priceValue, action = 'add' }) {
         className='flex flex-col gap-4'
         method='post'
         action={action}
+        replace
       >
         <InputWithLabel
           title={'Title'}

@@ -10,7 +10,7 @@ export default function DeleteTask() {
 
   useEffect(() => {
     dispatch(removeTask(id))
-    navigate('/')
+    navigate('/', { replace: true })
   }, [dispatch, navigate, id])
 
   return null
