@@ -34,7 +34,7 @@ export default function TaskForm({ titleValue, priceValue, action = 'add' }) {
         />
         <InputWithLabel
           title={'Price'}
-          type='text'
+          type='number'
           name='price'
           placeholder='Enter price'
           defaultValue={priceValue || ''}
